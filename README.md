@@ -50,16 +50,19 @@ packages: zoo, ggplot2, readxl
   the setwd() command in R to change directory.)
 
 7.  Load the oil production analysis script:
+
 ```
 	source("oil_production.R")
 ```
 
 8.  Load the BakerHughes data:
+
 ```
 	bakerhughes <- read_rig_counts()
 ```
 
 9.  The oil production data is made available by EIA at:
+
 ```
 	http://www.eia.gov/petroleum/supply/weekly/
 	http://ir.eia.gov/wpsr/psw01.xls
@@ -71,16 +74,19 @@ packages: zoo, ggplot2, readxl
 ```
 
 10.  Load the EIA oil production data into R:
+
 ```
           eia <- read_eia_production()
 ```
 
 11.  Combine the Baker Hughes and EIA data into a single data.frame:
+
 ```
          bheia <- combine_baker_hughes_and_eia(bakerhughes, eia)
 ```
 
 12.  Search for the best fitting models:
+
 ```
         bheia.models <- find_production_parameters_by_week(bheia)
 ```
