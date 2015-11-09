@@ -30,8 +30,9 @@ packages: zoo, ggplot2, readxl
 
 3.  Create a subdirectory named "data"
 
-4.  Download the excel spreadsheet of rig count data from Baker Hughes at:
+4.  Download the excel spreadsheet of rig count data from Baker Hughes at:<br>
 	http://www.bakerhughes.com/rig-count
+        <br>
 	http://phx.corporate-ir.net/phoenix.zhtml?c=79687&p=irol-reportsother
 	
   This file is in xlsb format and cannot be read directly by R.
