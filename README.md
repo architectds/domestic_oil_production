@@ -150,7 +150,7 @@ the historical data, enter the command:
 Improvements to this code are welcomed!
 
 Matthew Clegg
-
+<br>
 matthewcleggphd@gmail.com
-
+<br>
 November 8, 2015
