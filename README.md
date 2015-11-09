@@ -51,45 +51,45 @@ packages: zoo, ggplot2, readxl
 
 7.  Load the oil production analysis script:
 
-```
+  ```
 	source("oil_production.R")
-```
+  ```
 
 8.  Load the BakerHughes data:
 
-```
+  ```
 	bakerhughes <- read_rig_counts()
-```
+  ```
 
 9.  The oil production data is made available by EIA at:
 
-```
+  ```
 	http://www.eia.gov/petroleum/supply/weekly/
 	http://ir.eia.gov/wpsr/psw01.xls
-```
+  ```
 
   This can be downloaded onto your computer by executing the following R command:
-```
+  ```
     download_eia_production()
-```
+  ```
 
 10.  Load the EIA oil production data into R:
 
-```
+  ```
           eia <- read_eia_production()
-```
+  ```
 
 11.  Combine the Baker Hughes and EIA data into a single data.frame:
 
-```
+  ```
          bheia <- combine_baker_hughes_and_eia(bakerhughes, eia)
-```
+  ```
 
 12.  Search for the best fitting models:
 
-```
+  ```
         bheia.models <- find_production_parameters_by_week(bheia)
-```
+  ```
 
   On my MacBook Pro laptop, this took about 20 minutes to run.
 
@@ -102,50 +102,50 @@ packages: zoo, ggplot2, readxl
 13.  To plot the fit of the model for the production delay of 17 weeks versus
 the historical data, enter the command:
 
-```
+  ```
   plot_forecast(bheia, bheia.models[17,])
-```
+  ```
 
   Replace the number 17 with a different number see the plot for
   a different production delay.
 
 14.  To see the forecast through the end of 2016, enter the command:
 
-```
+  ```
   plot_forecast(bheia, bheia.models[17,], forecast_date=as.Date("2016-12-31"))
-```
+  ```
 
 15.  To plot multiple models on a single graph, enter the command:
 
-```
+  ```
   multiplot_forecast(bheia, bheia.models[c(13,17,21,25),])
-```
+  ```
 
   (This plots the models for production delays of 13, 17, 21 and 25 weeks.)
 
 16.  To see the date at which production reaches its minimum for a given model, enter the command:
 
-```
+  ```
   find_production_minimum(bheia, bheia.models[17,])
-```
+  ```
 
 17.  To see the chart that compares "conventional wisdom" to actual production, enter:
 
-```
+  ```
   plot_adhoc_model(bheia)
-```
+  ```
 
 18.  To see the chart of the best fitting model, enter:
 
-```
+  ```
   plot_best_model(bheia, bheia.models)
-```
+  ```
 
 19.  To see the chart of the top best fitting models, enter:
 
-```
+  ```
   plot_top_models(bheia, bheia.models[c(13,17,21,25),])
-```
+  ```
 
 Improvements to this code are welcomed!
 
