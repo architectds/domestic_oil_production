@@ -397,6 +397,7 @@ forecast_production <- function (eiabh, params, start_date=as.Date("2014-01-03")
 }
 
 plot_forecast <- function (eiabh, params, start_date=as.Date("2014-01-03"), forecast_date=as.Date("2016-06-30"), rig_count=572) {
+  library(ggplot2)
   edf <- extend_eia_df(eiabh, new_end_date=forecast_date, rig_count=rig_count)
   edfs <- simulate_production(
     edf, 
@@ -418,6 +419,7 @@ plot_forecast <- function (eiabh, params, start_date=as.Date("2014-01-03"), fore
 }
 
 multiplot_forecast <- function (eiabh, params, start_date=as.Date("2014-01-03"), forecast_date=as.Date("2016-06-30"), rig_count=572) {
+  library(ggplot2)
   edf <- extend_eia_df(eiabh, new_end_date=forecast_date, rig_count=rig_count)  
   
   df.a <- NULL
@@ -482,6 +484,7 @@ plot_adhoc_model <- function
  start_date = as.Date("2014-01-03"), # First date to be used in simulation
  end_date = as.Date("2015-11-15") # End date
 ) {
+  library(ggplot2)
   m <- find_initial_production(
     bheia,
     production_delay = production_delay,
@@ -497,6 +500,7 @@ plot_adhoc_model <- function
 }
 
 plot_best_model <- function (bheia, bheia.models) {
+  library(ggplot2)
   ibest <- which.min(bheia.models$msqerr)
   p <- plot_forecast(bheia, bheia.models[ibest,], forecast_date=bheia.models$end_date[ibest])
   p <- p + ggtitle("Comparison of Actual Production to Best Fitting Model") +
@@ -505,6 +509,7 @@ plot_best_model <- function (bheia, bheia.models) {
 }
 
 plot_top_models <- function (bheia, bheia.models) {
+  library(ggplot2)
   p <- multiplot_forecast(bheia, bheia.models, forecast_date=as.Date("2016-06-30"))
   p <- p + ggtitle("Forecasts of Future Production") +
     ylab("Domestic Oil Production\n(Thousands of Barrels Per Day)") + xlab("")
