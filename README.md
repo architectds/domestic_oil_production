@@ -40,7 +40,9 @@ packages: zoo, ggplot2, readxl
 5.  Convert the Baker Hughes spreadsheet to an xlsx file.  
 
   Open the file in Excel.  Save it in xlsx format to the "data" directory with the name
+  ```
    	Baker_Hughes_Rig_Count_YYYYMMDD.xlsx
+   ```
   where YYYYMMDD represents today's date.
 
 6.  Launch R.  Be sure that the working directory is the same as the
@@ -48,26 +50,40 @@ packages: zoo, ggplot2, readxl
   the setwd() command in R to change directory.)
 
 7.  Load the oil production analysis script:
+    ```
 	source("oil_production.R")
+```
 
 8.  Load the BakerHughes data:
-	bakerhughes <- read_baker_hughes()
+```
+	bakerhughes <- read_rig_counts()
+```
 
 9.  The oil production data is made available by EIA at:
+```
 	http://www.eia.gov/petroleum/supply/weekly/
 	http://ir.eia.gov/wpsr/psw01.xls
+```
 
   This can be downloaded onto your computer by executing the following R command:
+ ```
     download_eia_production()
+ ```
 
 10.  Load the EIA oil production data into R:
+```
           eia <- read_eia_production()
+```
 
 11.  Combine the Baker Hughes and EIA data into a single data.frame:
+```
          bheia <- combine_baker_hughes_and_eia(bakerhughes, eia)
+```
 
 12.  Search for the best fitting models:
-        bheia.models <- find_production_parameters_by_week(bheia.models)
+```
+        bheia.models <- find_production_parameters_by_week(bheia)
+```
 
   On my MacBook Pro laptop, this took about 20 minutes to run.
 
