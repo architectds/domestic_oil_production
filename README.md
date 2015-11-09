@@ -50,7 +50,7 @@ packages: zoo, ggplot2, readxl
   the setwd() command in R to change directory.)
 
 7.  Load the oil production analysis script:
-    ```
+```
 	source("oil_production.R")
 ```
 
@@ -66,9 +66,9 @@ packages: zoo, ggplot2, readxl
 ```
 
   This can be downloaded onto your computer by executing the following R command:
- ```
+```
     download_eia_production()
- ```
+```
 
 10.  Load the EIA oil production data into R:
 ```
@@ -96,36 +96,50 @@ packages: zoo, ggplot2, readxl
 13.  To plot the fit of the model for the production delay of 17 weeks versus
 the historical data, enter the command:
 
+```
   plot_forecast(bheia, bheia.models[17,])
+```
 
   Replace the number 17 with a different number see the plot for
   a different production delay.
 
 14.  To see the forecast through the end of 2016, enter the command:
 
+```
   plot_forecast(bheia, bheia.models[17,], forecast_date=as.Date("2016-12-31"))
+```
 
 15.  To plot multiple models on a single graph, enter the command:
 
+```
   multiplot_forecast(bheia, bheia.models[c(13,17,21,25),])
+```
 
   (This plots the models for production delays of 13, 17, 21 and 25 weeks.)
 
 16.  To see the date at which production reaches its minimum for a given model, enter the command:
 
+```
   find_production_minimum(bheia, bheia.models[17,])
+```
 
 17.  To see the chart that compares "conventional wisdom" to actual production, enter:
 
+```
   plot_adhoc_model(bheia)
+```
 
 18.  To see the chart of the best fitting model, enter:
 
+```
   plot_best_model(bheia, bheia.models)
+```
 
 19.  To see the chart of the top best fitting models, enter:
 
+```
   plot_top_models(bheia, bheia.models[c(13,17,21,25),])
+```
 
 Improvements to this code are welcomed!
 
